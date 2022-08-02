@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PressureSystemInformation_Vbeta1.MainForm">
+    <Position X="9.25" Y="6" Width="1.5" />
+    <AssociationLine Name="MainSerialCom" Type="PressureSystemInformation_Vbeta1.SerialCommunication.SerialCommunicationProtocol">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.135" Y="-0.591" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>QBAAQEAAICCAAAAAIACAFBACAgAAAAgIAiIAAAAAACA=</HashCode>
+      <FileName>MainForm.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="MainSerialCom" />
+      <Field Name="test" />
+      <Field Name="monitorControl" />
+      <Field Name="graphControl" />
+      <Field Name="settingsControl" />
+      <Field Name="registerCycleControl" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PressureSystemInformation_Vbeta1.SerialCommunication.SerialCommunicationProtocol" Collapsed="true">
+    <Position X="11.75" Y="8.75" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAIFAQAABAAAAAAAAAAAAAABAAAAAAAQAAA=</HashCode>
+      <FileName>SerialCommunication\SerialCommunicationProtocol.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PressureSystemInformation_Vbeta1.Test.LeakTest">
+    <Position X="11.75" Y="6" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>wQAAAgAAAAAIAAAEoAgEAQAMEgEAgAgIFCAABEgAAAA=</HashCode>
+      <FileName>Test\LeakTest.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="PTdata" />
+      <Field Name="cycles" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="PressureSystemInformation_Vbeta1.Visualization.DigitalDisplay" Collapsed="true">
+    <Position X="3" Y="6" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAIAAABAAAAAAA=</HashCode>
+      <FileName>Visualization\DigitalDisplay.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Ni7Seg" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PressureSystemInformation_Vbeta1.Controls.MonitorControl" Collapsed="true">
+    <Position X="6" Y="6" Width="1.5" />
+    <AssociationLine Name="pressureDisplay" Type="PressureSystemInformation_Vbeta1.Visualization.DigitalDisplay" FixedFromPoint="true">
+      <Path>
+        <Point X="6" Y="6.5" />
+        <Point X="4.5" Y="6.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.085" Y="0.061" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="dropDisplay" Type="PressureSystemInformation_Vbeta1.Visualization.DigitalDisplay">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.039" Y="0.151" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>IAABAEAABCABAAEAAACYAAACAAAAAAQAAIAABAACAAA=</HashCode>
+      <FileName>Controls\MonitorControl.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="pressureDisplay" />
+      <Field Name="dropDisplay" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PressureSystemInformation_Vbeta1.Fonts.CustomFont" Collapsed="true">
+    <Position X="3" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAABAAAAAAAAAIgAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Fonts\CustomFont.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PressureSystemInformation_Vbeta1.Controls.GraphControl" Collapsed="true">
+    <Position X="6" Y="8" Width="1.5" />
+    <AssociationLine Name="pressureGraph" Type="PressureSystemInformation_Vbeta1.Visualization.PressureGraph">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.101" Y="0.124" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>IARAAIggQCAEUAAAAACAAIACBQEAAAgAAAAIAAAEBIA=</HashCode>
+      <FileName>Controls\GraphControl.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="pressureGraph" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.205" />
+  </Class>
+  <Class Name="PressureSystemInformation_Vbeta1.Visualization.PressureGraph" Collapsed="true">
+    <Position X="3" Y="8" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ACIACEiEAAAQAAAIAAAAAAAAAAAAAgABAAAAAAAAUQI=</HashCode>
+      <FileName>Visualization\PressureGraph.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PressureSystemInformation_Vbeta1.Test.PressureAndTimeData" Collapsed="true">
+    <Position X="14.25" Y="6" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAgAAAAAAAAAAAAAAACAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Test\PressureAndTimeData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PressureSystemInformation_Vbeta1.Controls.SettingsControl" Collapsed="true">
+    <Position X="6" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ONEgRBEAEDwgAAAQBAKCIAgCAAAIAAAgfACJAACSEKA=</HashCode>
+      <FileName>Controls\SettingsControl.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PressureSystemInformation_Vbeta1.Controls.RegisterCycleControl" Collapsed="true">
+    <Position X="5.75" Y="9" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAFAAAAGAAAACACAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Controls\RegisterCycleControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PressureSystemInformation_Vbeta1.Test.LeakCycle" Collapsed="true">
+    <Position X="14.25" Y="6.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QAAAQAAgAAwAEAAEABAgAAAAAgAQAAAAhAgCAMQIAgA=</HashCode>
+      <FileName>Test\LeakCycle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
