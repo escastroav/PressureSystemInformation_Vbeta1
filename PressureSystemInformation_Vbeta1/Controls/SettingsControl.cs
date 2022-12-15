@@ -35,7 +35,8 @@ namespace PressureSystemInformation_Vbeta1.Controls
         }
         public void EnableControl()
         {
-            COMComboBox.Enabled = true; COMComboBox.SelectedItem = COMComboBox.Items[0];
+            COMComboBox.Enabled = true; 
+            if(COMComboBox.Items.Count > 0) COMComboBox.SelectedItem = COMComboBox.Items[0];
             ExpectationModeComboBox.Enabled = true; ExpectationModeComboBox.SelectedItem = ExpectationModeComboBox.Items[0];
             GraphStyleComboBox.Enabled = true; GraphStyleComboBox.SelectedItem = GraphStyleComboBox.Items[0];
             SampleTimeTextBox.Enabled = true;

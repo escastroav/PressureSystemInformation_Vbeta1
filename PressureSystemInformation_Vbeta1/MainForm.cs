@@ -40,21 +40,40 @@ namespace PressureSystemInformation_Vbeta1
         }
         public bool BeginTest() 
         {
-            if (settingsControl.CheckAllFields()) 
-            {
-                if (MainSerialCom.InitializeSerialCommunication(settingsControl.GetPortName(), settingsControl.GetSampleTime()))
+            string portName = "";
+            int sampleTime = 0;
+            bool initializationDone = false;
+            
+            if (settingsControl.CheckAllFields())
+            { 
+                portName = settingsControl.GetPortName();
+                sampleTime = settingsControl.GetSampleTime();
+                initializationDone = MainSerialCom.InitializeSerialCommunication(portName, sampleTime);
+
+                if (portName != "" && sampleTime > 0 && initializationDone)
                 {
-                    test = new LeakTest(
-                    DateTime.Now,
-                    settingsControl.GetSampleTime(),
-                    registerCycleControl.GetCycleList(),
-                    settingsControl.GetMaxP(),
-                    settingsControl.GetMinP(),
-                    settingsControl.GetMaxV(),
-                    settingsControl.GetMinV()) ;                
-                    settingsControl.DisableControl();
+                    try
+                    {
+                        test = new LeakTest(
+                        DateTime.Now,
+                        settingsControl.GetSampleTime(),
+                        registerCycleControl.GetCycleList(),
+                        settingsControl.GetMaxP(),
+                        settingsControl.GetMinP(),
+                        settingsControl.GetMaxV(),
+                        settingsControl.GetMinV());
+                        settingsControl.DisableControl();
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show(error.Message);
+                    }
+                    MainSerialCom.StartToRegister();
                     return true;
-                }                
+                }
+                else
+                    MessageBox.Show("Por favor ingrese datos validos o conecte el dispositivo correcto.");
+
             }
             else
                 MessageBox.Show("Por favor diligencie todos los campos antes de comenzar.");
