@@ -31,11 +31,13 @@ namespace PressureSystemInformation_Vbeta1.Controls
             MaxVoltTextBox.Enabled = false;
             MinVoltTextBox.Enabled = false;
             CleanControlButton.Enabled = false;
-
+            reportButton.Enabled = false;
         }
         public void EnableControl()
         {
-            COMComboBox.Enabled = true; COMComboBox.SelectedItem = COMComboBox.Items[0];
+            COMComboBox.Enabled = true; 
+            if(COMComboBox.Items.Count > 0)
+                COMComboBox.SelectedItem = COMComboBox.Items[0];
             ExpectationModeComboBox.Enabled = true; ExpectationModeComboBox.SelectedItem = ExpectationModeComboBox.Items[0];
             GraphStyleComboBox.Enabled = true; GraphStyleComboBox.SelectedItem = GraphStyleComboBox.Items[0];
             SampleTimeTextBox.Enabled = true;
@@ -46,6 +48,7 @@ namespace PressureSystemInformation_Vbeta1.Controls
             MaxVoltTextBox.Enabled = true;
             MinVoltTextBox.Enabled = true;
             CleanControlButton.Enabled = true;
+            reportButton.Enabled = true;
         }
         public bool CheckAllFields() 
         {
@@ -100,6 +103,12 @@ namespace PressureSystemInformation_Vbeta1.Controls
         {
             MainForm form = ParentForm as MainForm;
             form.SetStyleForGraph(GraphStyleComboBox.Text);
+        }
+
+        private void reportButton_Click(object sender, EventArgs e)
+        {
+            MainForm form = ParentForm as MainForm;
+            form.OpenReportEditor();
         }
     }
 }

@@ -31,6 +31,9 @@ namespace PressureSystemInformation_Vbeta1.Controls
         {
             this.TestPropertiesPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.reportButton = new System.Windows.Forms.Button();
+            this.GraphStyleComboBox = new System.Windows.Forms.ComboBox();
+            this.GraphStyleLabel = new System.Windows.Forms.Label();
             this.MinVoltTextBox = new System.Windows.Forms.TextBox();
             this.minVLabel = new System.Windows.Forms.Label();
             this.MaxVoltTextBox = new System.Windows.Forms.TextBox();
@@ -50,8 +53,6 @@ namespace PressureSystemInformation_Vbeta1.Controls
             this.SettingsTitle = new System.Windows.Forms.Label();
             this.ExpectationModeComboBox = new System.Windows.Forms.ComboBox();
             this.CleanControlButton = new System.Windows.Forms.Button();
-            this.GraphStyleLabel = new System.Windows.Forms.Label();
-            this.GraphStyleComboBox = new System.Windows.Forms.ComboBox();
             this.TestPropertiesPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -74,6 +75,7 @@ namespace PressureSystemInformation_Vbeta1.Controls
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.reportButton, 2, 10);
             this.tableLayoutPanel1.Controls.Add(this.GraphStyleComboBox, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.GraphStyleLabel, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.MinVoltTextBox, 1, 9);
@@ -94,7 +96,7 @@ namespace PressureSystemInformation_Vbeta1.Controls
             this.tableLayoutPanel1.Controls.Add(this.ExpectedPercentLabel, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.SettingsTitle, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.ExpectationModeComboBox, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.CleanControlButton, 2, 10);
+            this.tableLayoutPanel1.Controls.Add(this.CleanControlButton, 1, 10);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -110,8 +112,49 @@ namespace PressureSystemInformation_Vbeta1.Controls
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(278, 317);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // reportButton
+            // 
+            this.reportButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportButton.Location = new System.Drawing.Point(192, 284);
+            this.reportButton.Margin = new System.Windows.Forms.Padding(3, 3, 5, 3);
+            this.reportButton.MaximumSize = new System.Drawing.Size(0, 25);
+            this.reportButton.Name = "reportButton";
+            this.reportButton.Size = new System.Drawing.Size(81, 25);
+            this.reportButton.TabIndex = 33;
+            this.reportButton.Text = "Crear Reporte";
+            this.reportButton.UseVisualStyleBackColor = true;
+            this.reportButton.Click += new System.EventHandler(this.reportButton_Click);
+            // 
+            // GraphStyleComboBox
+            // 
+            this.GraphStyleComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GraphStyleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.GraphStyleComboBox.FormattingEnabled = true;
+            this.GraphStyleComboBox.Items.AddRange(new object[] {
+            "Light",
+            "Dark"});
+            this.GraphStyleComboBox.Location = new System.Drawing.Point(112, 118);
+            this.GraphStyleComboBox.Name = "GraphStyleComboBox";
+            this.GraphStyleComboBox.Size = new System.Drawing.Size(74, 21);
+            this.GraphStyleComboBox.TabIndex = 32;
+            this.GraphStyleComboBox.TextChanged += new System.EventHandler(this.ChangeGraphStyle);
+            // 
+            // GraphStyleLabel
+            // 
+            this.GraphStyleLabel.AutoSize = true;
+            this.GraphStyleLabel.BackColor = System.Drawing.Color.Transparent;
+            this.GraphStyleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GraphStyleLabel.Location = new System.Drawing.Point(3, 120);
+            this.GraphStyleLabel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.GraphStyleLabel.Name = "GraphStyleLabel";
+            this.GraphStyleLabel.Size = new System.Drawing.Size(103, 17);
+            this.GraphStyleLabel.TabIndex = 31;
+            this.GraphStyleLabel.Text = "Estilo de gráfico";
+            this.GraphStyleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // MinVoltTextBox
             // 
@@ -339,7 +382,7 @@ namespace PressureSystemInformation_Vbeta1.Controls
             // CleanControlButton
             // 
             this.CleanControlButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CleanControlButton.Location = new System.Drawing.Point(192, 284);
+            this.CleanControlButton.Location = new System.Drawing.Point(112, 284);
             this.CleanControlButton.Margin = new System.Windows.Forms.Padding(3, 3, 15, 3);
             this.CleanControlButton.MaximumSize = new System.Drawing.Size(60, 25);
             this.CleanControlButton.Name = "CleanControlButton";
@@ -348,33 +391,6 @@ namespace PressureSystemInformation_Vbeta1.Controls
             this.CleanControlButton.Text = "Limpiar";
             this.CleanControlButton.UseVisualStyleBackColor = true;
             this.CleanControlButton.Click += new System.EventHandler(this.CleanControlButton_Click);
-            // 
-            // GraphStyleLabel
-            // 
-            this.GraphStyleLabel.AutoSize = true;
-            this.GraphStyleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.GraphStyleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GraphStyleLabel.Location = new System.Drawing.Point(3, 120);
-            this.GraphStyleLabel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.GraphStyleLabel.Name = "GraphStyleLabel";
-            this.GraphStyleLabel.Size = new System.Drawing.Size(103, 17);
-            this.GraphStyleLabel.TabIndex = 31;
-            this.GraphStyleLabel.Text = "Estilo de gráfico";
-            this.GraphStyleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // GraphStyleComboBox
-            // 
-            this.GraphStyleComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GraphStyleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.GraphStyleComboBox.FormattingEnabled = true;
-            this.GraphStyleComboBox.Items.AddRange(new object[] {
-            "Light",
-            "Dark"});
-            this.GraphStyleComboBox.Location = new System.Drawing.Point(112, 118);
-            this.GraphStyleComboBox.Name = "GraphStyleComboBox";
-            this.GraphStyleComboBox.Size = new System.Drawing.Size(74, 21);
-            this.GraphStyleComboBox.TabIndex = 32;
-            this.GraphStyleComboBox.TextChanged += new System.EventHandler(this.ChangeGraphStyle);
             // 
             // SettingsControl
             // 
@@ -415,5 +431,6 @@ namespace PressureSystemInformation_Vbeta1.Controls
         private System.Windows.Forms.Button CleanControlButton;
         private System.Windows.Forms.ComboBox GraphStyleComboBox;
         private System.Windows.Forms.Label GraphStyleLabel;
+        private System.Windows.Forms.Button reportButton;
     }
 }

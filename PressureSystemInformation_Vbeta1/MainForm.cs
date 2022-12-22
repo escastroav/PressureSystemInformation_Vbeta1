@@ -12,8 +12,7 @@ using System.IO.Ports;
 
 using PressureSystemInformation_Vbeta1.Test;
 using PressureSystemInformation_Vbeta1.SerialCommunication;
-using PressureSystemInformation_Vbeta1.Visualization;
-using PressureSystemInformation_Vbeta1.Controls;
+using PressureSystemInformation_Vbeta1.Report;
 
 namespace PressureSystemInformation_Vbeta1
 {
@@ -77,11 +76,23 @@ namespace PressureSystemInformation_Vbeta1
             test.StopLastCycle(settingsControl.GetExpDrop(),settingsControl.GetExpType());
         }
 
+        public void OpenReportEditor() 
+        {
+            ReportForm reportForm;
+            if (test != null)
+            { 
+                reportForm = new ReportForm(test);
+                reportForm.Show();
+            }
+            else
+                MessageBox.Show("No se puede crear reporte sin iniciar una prueba."); 
+        }
+
         private void MainSerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             int input;
             int timeCounter = 0;
-            while (MainSerialCom.CanReadData()) 
+            while (MainSerialCom.CanReadData() && test != null) 
             {
                 input = MainSerialCom.ReadData();
                 timeCounter = graphControl.GetCount();
@@ -93,6 +104,6 @@ namespace PressureSystemInformation_Vbeta1
 
                 test.RenderData(graphControl, monitorControl);          
             }
-        }       
+        }             
     }
 }

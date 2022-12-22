@@ -22,7 +22,7 @@ namespace PressureSystemInformation_Vbeta1.Test
 
         private double pressureDrop;
         public double PressureDrop { get { return pressureDrop; } set { pressureDrop = value; } }
-
+        
         private bool pass;
         public bool Pass { get{ return pass; } set{ pass = value; } }
 
@@ -71,7 +71,7 @@ namespace PressureSystemInformation_Vbeta1.Test
         private void EvaluateCycleByPercent(double expectedDropPercentage) 
         {
             double dropPercentage = 100.0d * (1.0d - (pressurePeak - pressureDrop) / pressurePeak);
-
+            
             pass = dropPercentage < expectedDropPercentage;
         }
         private void EvaluateCycleByValue(double expectedDrop) 

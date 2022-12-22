@@ -15,6 +15,9 @@ namespace PressureSystemInformation_Vbeta1.Test
         private BindingSource cyclesBS;
         private DataGridView cyclesRegisterList;
         private Calibration calibrationPattern;
+
+        public List<PressureAndTimeData> PTDataRep { get { return PTdata; } }
+        public List<LeakCycle> cyclesRep { get { return cycles; } }
         
         private double mainPressurePeak;
         public double MainPressurePeak { get { return mainPressurePeak; } set { mainPressurePeak = value; } }
@@ -40,6 +43,7 @@ namespace PressureSystemInformation_Vbeta1.Test
             PTdata = new List<PressureAndTimeData>();
             PTdata.Clear();
             cyclesBS = new BindingSource { DataSource = cycles };
+            cyclesRegisterList.DataSource = cycles;
             isRegisteringCycle = false;
             CreateCalibrationPattern(maxP, minP, maxV, minV);
         }
@@ -79,10 +83,11 @@ namespace PressureSystemInformation_Vbeta1.Test
         public void StopLastCycle(double expetedPercent, string type) 
         {
             isRegisteringCycle = false;
-            if(type == "%")
-                cycles.Last().EndCycle(expetedPercent, type);
-            cyclesBS.Add(cycles.Last());
-            cyclesRegisterList.DataSource = cyclesBS;
+            
+            cycles.Last().EndCycle(expetedPercent, type);         
+            //cyclesBS.Add(cycles.Last());
+            //cyclesRegisterList.DataSource = cyclesBS;
+            cyclesRegisterList.Refresh();
         }       
         private void UpdatePeak() 
         {

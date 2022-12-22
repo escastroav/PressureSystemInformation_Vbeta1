@@ -29,13 +29,16 @@ namespace PressureSystemInformation_Vbeta1.Controls
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.CyclesRegisterPanel = new System.Windows.Forms.Panel();
             this.CyclesRegisterGrid = new System.Windows.Forms.TableLayoutPanel();
             this.CyclesRegisterLabel = new System.Windows.Forms.Label();
             this.CyclesRegisterList = new System.Windows.Forms.DataGridView();
+            this.leakCycleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.CyclesRegisterPanel.SuspendLayout();
             this.CyclesRegisterGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CyclesRegisterList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leakCycleBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // CyclesRegisterPanel
@@ -88,8 +91,13 @@ namespace PressureSystemInformation_Vbeta1.Controls
             this.CyclesRegisterList.Location = new System.Drawing.Point(20, 48);
             this.CyclesRegisterList.Margin = new System.Windows.Forms.Padding(20, 5, 20, 15);
             this.CyclesRegisterList.Name = "CyclesRegisterList";
+            this.CyclesRegisterList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.CyclesRegisterList.Size = new System.Drawing.Size(106, 91);
             this.CyclesRegisterList.TabIndex = 3;
+            // 
+            // leakCycleBindingSource
+            // 
+            this.leakCycleBindingSource.DataSource = typeof(PressureSystemInformation_Vbeta1.Test.LeakCycle);
             // 
             // RegisterCycleControl
             // 
@@ -101,6 +109,7 @@ namespace PressureSystemInformation_Vbeta1.Controls
             this.CyclesRegisterGrid.ResumeLayout(false);
             this.CyclesRegisterGrid.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CyclesRegisterList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leakCycleBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -111,5 +120,6 @@ namespace PressureSystemInformation_Vbeta1.Controls
         private System.Windows.Forms.TableLayoutPanel CyclesRegisterGrid;
         private System.Windows.Forms.Label CyclesRegisterLabel;
         private System.Windows.Forms.DataGridView CyclesRegisterList;
+        private System.Windows.Forms.BindingSource leakCycleBindingSource;
     }
 }

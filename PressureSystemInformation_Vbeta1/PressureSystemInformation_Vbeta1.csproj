@@ -33,6 +33,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -82,12 +100,26 @@
     <Compile Include="Controls\RegisterCycleControl.Designer.cs">
       <DependentUpon>RegisterCycleControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Report\ReportData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Report\ReportData.Designer.cs">
+      <DependentUpon>ReportData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SettingsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\SettingsControl.Designer.cs">
       <DependentUpon>SettingsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm.Designer.cs">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\ReportTest.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Test\Calibration.cs" />
     <Compile Include="Test\LeakCycle.cs" />
     <Compile Include="Test\LeakTest.cs" />
@@ -119,6 +151,9 @@
     <EmbeddedResource Include="Controls\RegisterCycleControl.resx">
       <DependentUpon>RegisterCycleControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Report\ReportData.resx">
+      <DependentUpon>ReportData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\SettingsControl.resx">
       <DependentUpon>SettingsControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -136,7 +171,15 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Fonts\ni7seg.ttf" />
+    <EmbeddedResource Include="Report\ReportDesign.rdlc" />
+    <EmbeddedResource Include="ReportForm.resx">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="GeneralUML.cd" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\PressureSystemInformation_Vbeta1.Report.Report.datasource" />
+    <None Include="Properties\DataSources\PressureSystemInformation_Vbeta1.Test.LeakCycle.datasource" />
+    <None Include="Properties\DataSources\PressureSystemInformation_Vbeta1.Test.PressureAndTimeData.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -154,6 +197,19 @@
   <ItemGroup>
     <Content Include="Images\dalebac.png" />
     <Content Include="Images\logoMax.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
