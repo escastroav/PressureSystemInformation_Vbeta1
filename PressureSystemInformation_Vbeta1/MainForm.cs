@@ -38,21 +38,7 @@ namespace PressureSystemInformation_Vbeta1
             graphControl.ChangeStyle(style);
         }
         public bool BeginTest() 
-        {
-            if (settingsControl.CheckAllFields()) 
-            {
-                if (MainSerialCom.InitializeSerialCommunication(settingsControl.GetPortName(), settingsControl.GetSampleTime()))
-                {
-                    test = new LeakTest(
-                    DateTime.Now,
-                    settingsControl.GetSampleTime(),
-                    registerCycleControl.GetCycleList(),
-                    settingsControl.GetMaxP(),
-                    settingsControl.GetMinP(),
-                    settingsControl.GetMaxV(),
-                    settingsControl.GetMinV()) ;                
-                    settingsControl.DisableControl();
-                    //registerCycleControl.FormatCycleTable();
+        {            
             string portName = "";
             int sampleTime = 0;
             bool initializationDone = false;
