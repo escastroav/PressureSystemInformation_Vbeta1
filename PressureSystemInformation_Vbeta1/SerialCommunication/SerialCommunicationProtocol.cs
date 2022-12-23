@@ -33,7 +33,7 @@ namespace PressureSystemInformation_Vbeta1.SerialCommunication
                 mainSerialPort.Open();
 
                 SetSampleTime(sampleTime);
-                mainSerialPort.WriteLine("$On");
+                //mainSerialPort.WriteLine("$On");
             }
             catch (Exception error)
             {
@@ -41,6 +41,19 @@ namespace PressureSystemInformation_Vbeta1.SerialCommunication
                 return false;
             }
             return true;
+        }
+
+        public void StartToRegister() 
+        {
+            try
+            {
+                mainSerialPort.WriteLine("$On");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }    
+        
         }
 
         public void EndSerialCommunication() 
@@ -69,8 +82,7 @@ namespace PressureSystemInformation_Vbeta1.SerialCommunication
 
         public int ReadData() 
         {
-            string serialData;            
-            serialData = mainSerialPort.ReadLine();            
+            string serialData = mainSerialPort.ReadLine();            
             return Convert.ToInt32(serialData);
         }
 
