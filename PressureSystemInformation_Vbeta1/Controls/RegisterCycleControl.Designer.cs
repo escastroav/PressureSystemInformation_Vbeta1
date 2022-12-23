@@ -30,11 +30,18 @@ namespace PressureSystemInformation_Vbeta1.Controls
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CyclesRegisterPanel = new System.Windows.Forms.Panel();
             this.CyclesRegisterGrid = new System.Windows.Forms.TableLayoutPanel();
             this.CyclesRegisterLabel = new System.Windows.Forms.Label();
             this.CyclesRegisterList = new System.Windows.Forms.DataGridView();
             this.leakCycleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cycleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.startDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cycleTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pressurePeak = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pressureDrop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pass = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.CyclesRegisterPanel.SuspendLayout();
             this.CyclesRegisterGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CyclesRegisterList)).BeginInit();
@@ -50,7 +57,7 @@ namespace PressureSystemInformation_Vbeta1.Controls
             this.CyclesRegisterPanel.Location = new System.Drawing.Point(0, 0);
             this.CyclesRegisterPanel.Margin = new System.Windows.Forms.Padding(5);
             this.CyclesRegisterPanel.Name = "CyclesRegisterPanel";
-            this.CyclesRegisterPanel.Size = new System.Drawing.Size(150, 150);
+            this.CyclesRegisterPanel.Size = new System.Drawing.Size(602, 140);
             this.CyclesRegisterPanel.TabIndex = 5;
             // 
             // CyclesRegisterGrid
@@ -66,7 +73,7 @@ namespace PressureSystemInformation_Vbeta1.Controls
             this.CyclesRegisterGrid.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.CyclesRegisterGrid.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.CyclesRegisterGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.CyclesRegisterGrid.Size = new System.Drawing.Size(146, 146);
+            this.CyclesRegisterGrid.Size = new System.Drawing.Size(598, 136);
             this.CyclesRegisterGrid.TabIndex = 0;
             // 
             // CyclesRegisterLabel
@@ -79,25 +86,90 @@ namespace PressureSystemInformation_Vbeta1.Controls
             this.CyclesRegisterLabel.Location = new System.Drawing.Point(3, 10);
             this.CyclesRegisterLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.CyclesRegisterLabel.Name = "CyclesRegisterLabel";
-            this.CyclesRegisterLabel.Size = new System.Drawing.Size(140, 30);
+            this.CyclesRegisterLabel.Size = new System.Drawing.Size(592, 15);
             this.CyclesRegisterLabel.TabIndex = 2;
             this.CyclesRegisterLabel.Text = "REGISTRO DE CICLOS";
             this.CyclesRegisterLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // CyclesRegisterList
             // 
+            this.CyclesRegisterList.AllowUserToAddRows = false;
+            this.CyclesRegisterList.AllowUserToDeleteRows = false;
+            this.CyclesRegisterList.AutoGenerateColumns = false;
             this.CyclesRegisterList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CyclesRegisterList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cycleID,
+            this.startDate,
+            this.cycleTime,
+            this.pressurePeak,
+            this.pressureDrop,
+            this.pass});
+            this.CyclesRegisterList.DataSource = this.leakCycleBindingSource;
             this.CyclesRegisterList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CyclesRegisterList.Location = new System.Drawing.Point(20, 48);
+            this.CyclesRegisterList.Location = new System.Drawing.Point(20, 33);
             this.CyclesRegisterList.Margin = new System.Windows.Forms.Padding(20, 5, 20, 15);
             this.CyclesRegisterList.Name = "CyclesRegisterList";
             this.CyclesRegisterList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.CyclesRegisterList.Size = new System.Drawing.Size(106, 91);
+            this.CyclesRegisterList.RowHeadersVisible = false;
+            this.CyclesRegisterList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.CyclesRegisterList.Size = new System.Drawing.Size(558, 91);
             this.CyclesRegisterList.TabIndex = 3;
             // 
             // leakCycleBindingSource
             // 
             this.leakCycleBindingSource.DataSource = typeof(PressureSystemInformation_Vbeta1.Test.LeakCycle);
+            // 
+            // cycleID
+            // 
+            this.cycleID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cycleID.DataPropertyName = "CycleID";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cycleID.DefaultCellStyle = dataGridViewCellStyle1;
+            this.cycleID.HeaderText = "Prueba No.";
+            this.cycleID.Name = "cycleID";
+            this.cycleID.ReadOnly = true;
+            // 
+            // startDate
+            // 
+            this.startDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.startDate.DataPropertyName = "StartDate";
+            this.startDate.HeaderText = "Hora y fecha";
+            this.startDate.Name = "startDate";
+            this.startDate.ReadOnly = true;
+            // 
+            // cycleTime
+            // 
+            this.cycleTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cycleTime.DataPropertyName = "CycleTime";
+            this.cycleTime.HeaderText = "Duración (seg)";
+            this.cycleTime.Name = "cycleTime";
+            this.cycleTime.ReadOnly = true;
+            // 
+            // pressurePeak
+            // 
+            this.pressurePeak.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.pressurePeak.DataPropertyName = "PressurePeak";
+            this.pressurePeak.HeaderText = "Máximo (PSI)";
+            this.pressurePeak.Name = "pressurePeak";
+            this.pressurePeak.ReadOnly = true;
+            // 
+            // pressureDrop
+            // 
+            this.pressureDrop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.pressureDrop.DataPropertyName = "PressureDrop";
+            this.pressureDrop.HeaderText = "Caída (PSI)";
+            this.pressureDrop.Name = "pressureDrop";
+            this.pressureDrop.ReadOnly = true;
+            // 
+            // pass
+            // 
+            this.pass.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.pass.DataPropertyName = "Pass";
+            this.pass.FalseValue = "NO APROBADO";
+            this.pass.HeaderText = "Aprobado?";
+            this.pass.Name = "pass";
+            this.pass.ReadOnly = true;
+            this.pass.TrueValue = "APROBADO";
             // 
             // RegisterCycleControl
             // 
@@ -105,6 +177,7 @@ namespace PressureSystemInformation_Vbeta1.Controls
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.CyclesRegisterPanel);
             this.Name = "RegisterCycleControl";
+            this.Size = new System.Drawing.Size(602, 140);
             this.CyclesRegisterPanel.ResumeLayout(false);
             this.CyclesRegisterGrid.ResumeLayout(false);
             this.CyclesRegisterGrid.PerformLayout();
@@ -121,5 +194,11 @@ namespace PressureSystemInformation_Vbeta1.Controls
         private System.Windows.Forms.Label CyclesRegisterLabel;
         private System.Windows.Forms.DataGridView CyclesRegisterList;
         private System.Windows.Forms.BindingSource leakCycleBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cycleID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn startDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cycleTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pressurePeak;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pressureDrop;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn pass;
     }
 }

@@ -66,7 +66,7 @@ namespace PressureSystemInformation_Vbeta1.Test
         }
         private void UpdateCycleTime(double stepTime) 
         {
-            cycleTime += stepTime;
+            cycleTime += stepTime / 1000.0d;
         }
         private void EvaluateCycleByPercent(double expectedDropPercentage) 
         {

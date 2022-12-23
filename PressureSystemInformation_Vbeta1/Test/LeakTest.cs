@@ -42,8 +42,9 @@ namespace PressureSystemInformation_Vbeta1.Test
             cycles.Clear();
             PTdata = new List<PressureAndTimeData>();
             PTdata.Clear();
-            cyclesBS = new BindingSource { DataSource = cycles };
-            cyclesRegisterList.DataSource = cycles;
+            cyclesBS = new BindingSource();
+            cyclesBS.DataSource = typeof(LeakCycle);
+            cyclesRegisterList.DataSource = cyclesBS;
             isRegisteringCycle = false;
             CreateCalibrationPattern(maxP, minP, maxV, minV);
         }
@@ -83,11 +84,10 @@ namespace PressureSystemInformation_Vbeta1.Test
         public void StopLastCycle(double expetedPercent, string type) 
         {
             isRegisteringCycle = false;
-            
             cycles.Last().EndCycle(expetedPercent, type);         
-            //cyclesBS.Add(cycles.Last());
-            //cyclesRegisterList.DataSource = cyclesBS;
-            cyclesRegisterList.Refresh();
+            cyclesBS.Add(cycles.Last());
+            //cyclesRegisterList.DataSource = cycles;
+            
         }       
         private void UpdatePeak() 
         {

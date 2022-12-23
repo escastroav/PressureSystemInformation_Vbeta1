@@ -52,6 +52,7 @@ namespace PressureSystemInformation_Vbeta1
                     settingsControl.GetMaxV(),
                     settingsControl.GetMinV()) ;                
                     settingsControl.DisableControl();
+                    //registerCycleControl.FormatCycleTable();
                     return true;
                 }                
             }

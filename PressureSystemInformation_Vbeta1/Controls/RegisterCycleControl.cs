@@ -15,6 +15,17 @@ namespace PressureSystemInformation_Vbeta1.Controls
         public RegisterCycleControl()
         {
             InitializeComponent();
+            FormatCycleTable();
+        }
+
+        public void FormatCycleTable() 
+        {
+            CyclesRegisterList.Columns["cycleID"].DefaultCellStyle.Format = "0000";
+            CyclesRegisterList.Columns["startDate"].DefaultCellStyle.Format = "hh:mm:ss.f dd MMM yyyy";
+            CyclesRegisterList.Columns["cycleTime"].DefaultCellStyle.Format = "0.0";
+            CyclesRegisterList.Columns["pressurePeak"].DefaultCellStyle.Format = "F1";
+            CyclesRegisterList.Columns["pressureDrop"].DefaultCellStyle.Format = "F1";
+            
         }
 
         public DataGridView GetCycleList() => CyclesRegisterList;
